@@ -7,3 +7,9 @@ describe 'validations' do
     expect(student).to_not be_valid
   end
 end
+describe "relationships" do
+  it "has many addresses" do
+    student = Student.new(name: "Charlie Chuck")
+    expect(student).to respond_to(:addresses)
+  end
+end

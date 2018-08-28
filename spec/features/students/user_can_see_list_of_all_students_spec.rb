@@ -17,7 +17,7 @@ describe 'as a user' do
 
       visit students_path
       expect(page).to have_link(student_1.name)
-      
+  
       click_link "Jimmy Jacobs"
       expect(current_path).to eq(student_path(student_1))
     end
