@@ -12,4 +12,8 @@ describe "relationships" do
     student = Student.new(name: "Charlie Chuck")
     expect(student).to respond_to(:addresses)
   end
+  it "has many courses" do
+    student = Student.new(name: "Charlie Chuck")
+    expect(student).to respond_to(:courses)
+  end
 end
