@@ -31,7 +31,7 @@ describe 'as a user' do
       address_2 = student.addresses.create(id: 2, street: "Vale St.", city: "Beaver Creek", state: "CO", zip: 80777, student_id: student.id)
 
       visit student_path(student)
-  
+
       within ".address-1" do
         expect(page).to have_content("Detroit St.")
         expect(page).to have_content("Denver")
@@ -44,6 +44,18 @@ describe 'as a user' do
         expect(page).to have_content("CO")
         expect(page).to have_content(80777)
       end
+    end
+    it 'should display the courses belonging to a student' do
+      student = Student.create(name: "Jimmy Jacobs")
+
+      course_1 = student.courses.create(name: "Computer Science")
+      course_2 = student.courses.create(name: "Geometry")
+
+      visit student_path(student)
+
+      expect(page).to have_content("Student Name: #{student.name}")
+      expect(page).to have_content(course_1.name)
+      expect(page).to have_content(course_2.name)
     end
   end
 end
