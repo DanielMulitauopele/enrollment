@@ -1,0 +1,14 @@
+<h1>Student Name: <%= @student.name %></h1>
+
+<% @student.addresses.each do |address| %>
+  <h2>Address <%= address.id %> </h2>
+  <ul class="address-<%= address.id %>">
+    <li><%= address.street %></li>
+    <li><%= address.city %></li>
+    <li><%= address.state %></li>
+    <li><%= address.zip %></li>
+  </ul>
+<% end %>
+
+<%= link_to "Create a New Student!", new_student_path %>
+<%= link_to "See All Students!", students_path %>
