@@ -3,10 +3,10 @@ require 'rails_helper'
 describe "relationships" do
   it "has many students" do
     student_course = StudentCourse.new
-    expect(student_course).to respond_to(:students)
+    expect(student_course).to respond_to(:student)
   end
   it "has many courses" do
     student_course = StudentCourse.new
-    expect(student_course).to respond_to(:courses)
+    expect(student_course).to respond_to(:course)
   end
 end
