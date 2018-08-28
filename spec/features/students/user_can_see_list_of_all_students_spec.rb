@@ -11,5 +11,19 @@ describe 'as a user' do
       expect(page).to have_content(student_1.name)
       expect(page).to have_content(student_2.name)
     end
+    it 'should be able to link to create student page' do
+      student = Student.create(name: "Jimmy Jacobs")
+      visit students_path
+
+      click_link "Create a New Student!"
+      expect(current_path).to eq(new_student_path)
+    end
+    it 'should be able to link to all students page' do
+      student = Student.create(name: "Jimmy Jacobs")
+      visit students_path
+
+      click_link "See All Students!"
+      expect(current_path).to eq(students_path)
+    end
   end
 end

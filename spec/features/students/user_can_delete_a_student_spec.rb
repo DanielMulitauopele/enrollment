@@ -17,5 +17,17 @@ describe 'as a user' do
       expect(page).to have_content("Billy Bobs")
       expect(page).to have_content("Sammy Stephens")
     end
+    it 'should be able to link to create student page' do
+      visit students_path
+
+      click_link "Create a New Student!"
+      expect(current_path).to eq(new_student_path)
+    end
+    it 'should be able to link to all students page' do
+      visit students_path
+
+      click_link "See All Students!"
+      expect(current_path).to eq(students_path)
+    end
   end
 end
