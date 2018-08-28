@@ -1,7 +1,8 @@
 <h1>All Students</h1>
 
 <% @students.each do |student| %>
-  <ul>
+  <ul class="student-<%= student.id %>">
     <li> <%= student.name %> </li>
+    <%= link_to "Delete", student_path(student), method: :delete %>
   </ul>
 <% end %>
